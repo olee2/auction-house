@@ -1,1 +1,10 @@
 @import '../../node_modules/bootstrap/scss/bootstrap';
+
+.navbar-brand {
+  img {
+    max-width: 100px;
+  }
+}
+
+@include media-breakpoint-down(lg) {
+}
