@@ -1,9 +1,41 @@
+@import '_variables.scss';
 @import '../../node_modules/bootstrap/scss/bootstrap';
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h1 {
+  font-size: 67px;
+}
+
+h2 {
+  font-size: 50px;
+}
+
+h3 {
+  font-size: 37px;
+}
+
+h4 {
+  font-size: 28px;
+}
 
 .navbar-brand {
   img {
     max-width: 100px;
   }
+}
+
+.nav-item {
+  font-size: 18px;
 }
 
 @include media-breakpoint-down(lg) {
