@@ -34,7 +34,7 @@ h4,
   font-size: 28px;
 }
 
-@include media-breakpoint-down(sm) {
+@include media-breakpoint-down(md) {
   h1,
   .h1 {
     font-size: 50px;
@@ -121,4 +121,8 @@ h4,
   width: 100%;
   gap: 21px;
   margin: 0 auto;
+  @include media-breakpoint-down(lg) {
+    grid-template-columns: repeat(8, calc(50% - 16px));
+    gap: 32px;
+  }
 }
