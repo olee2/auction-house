@@ -7,7 +7,7 @@ const main = async () => {
   const listings = await getListings();
   const onlyActive = filterFinished(listings);
 
-  const latest = onlyActive.slice(0, 40);
+  const latest = onlyActive.slice(0, 8);
   console.log(latest);
 
   listingsContainer.innerHTML = latest
