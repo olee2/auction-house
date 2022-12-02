@@ -4,7 +4,7 @@
  * @returns Array of active listings
  */
 
-const filterFinished = (listings) => {
+export const filterFinished = (listings) => {
   return listings.filter((item) => {
     const { endsAt } = item;
     const now = new Date().getTime();
