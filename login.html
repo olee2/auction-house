@@ -11,16 +11,49 @@
   <body class="d-flex flex-column">
     <nav class="navbar navbar-expand-lg bg-light border-bottom pt-4 pb-4">
       <div class="container-fluid">
-        <a class="navbar-brand text-primary m-auto" href="index.html"
-          ><img class="login-logo" src="assets/img/logo.svg"
+        <a class="navbar-brand text-primary" href="index.html"
+          ><img src="assets/img/logo.svg" alt="logo"
         /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="profile.html">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="listings.html">Listings</a>
+            </li>
+          </ul>
+          <button class="btn btn-outline-primary">Sign in</button>
+        </div>
       </div>
     </nav>
     <main class="d-flex flex-column justify-center">
       <div class="w-100 m-auto form-signin login">
         <form class="form-signin">
-          <h1 class="h3 mb-4 fw-normal text-center">Please sign in</h1>
-          <div class="signal text-center mb-4"></div>
+          <div
+            class="d-flex mb-4 border-bottom align-self-center logo-container p-3 align-items-center justify-center"
+          >
+            <img class="m-auto" src="/assets/img/logo.svg" alt="" />
+          </div>
+
+          <h1 class="h4 mb-3 fw-normal text-center">Please sign in</h1>
+          <div class="signal text-center mb-3"></div>
           <div class="form-floating">
             <input
               type="email"
@@ -108,5 +141,6 @@
       </footer>
     </div>
     <script src="/src/js/pages/login.js" type="module"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
