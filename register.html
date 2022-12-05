@@ -8,5 +8,110 @@
     <title>The Auction House - Register</title>
     <link rel="stylesheet" href="dist/css/styles.css" />
   </head>
-  <body></body>
+  <body class="d-flex flex-column">
+    <nav class="navbar navbar-expand-lg bg-light border-bottom pt-4 pb-4">
+      <div class="container-fluid">
+        <a class="navbar-brand text-primary" href="index.html"
+          ><img src="assets/img/logo.svg" alt="logo"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="profile.html">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="listings.html">Listings</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main class="d-flex flex-column justify-center register">
+      <div class="w-100 m-auto form-signin">
+        <form class="form-signin">
+          <div
+            class="d-flex mb-4 border-bottom align-self-center logo-container p-3 align-items-center justify-center"
+          >
+            <img class="m-auto" src="/assets/img/logo.svg" alt="" />
+          </div>
+
+          <h1 class="h4 mb-3 fw-normal text-center">New account</h1>
+          <div class="signal text-center mb-3"></div>
+          <div class="form-floating">
+            <input
+              type="text"
+              name="name"
+              class="form-control user-name"
+              id="name"
+              placeholder="Username"
+              title="Username can only contain letters, numbers and underscore (_)"
+              pattern="[\w]+"
+              required
+            />
+            <label for="name">User name</label>
+          </div>
+          <div class="form-floating">
+            <input
+              type="email"
+              name="email"
+              title="Enter a valid (@noroff.no / @stud.noroff.no) email adress"
+              class="form-control email"
+              id="email"
+              placeholder="name@example.com"
+              pattern="^[\w\-.]+@(stud.)?noroff.no$"
+              required
+            />
+            <label for="email">Email address</label>
+          </div>
+          <div class="form-floating">
+            <input
+              type="url"
+              name="avatar"
+              class="form-control email"
+              id="url"
+              placeholder="name@example.com"
+            />
+            <label for="url">Avatar URL</label>
+          </div>
+          <div class="form-floating">
+            <input
+              type="password"
+              name="password"
+              minlength="8"
+              class="form-control password mb-3"
+              id="floatingConfirmPassword"
+              placeholder="Password"
+              required
+            />
+            <label for="floatingConfirmPassword">Password</label>
+          </div>
+
+          <button class="w-100 btn btn-lg btn-primary" type="submit">
+            Sign up
+          </button>
+          <p class="text-center mt-4">
+            Already have an account? <a href="/login.html">Sign in</a>
+          </p>
+        </form>
+      </div>
+    </main>
+    <script src="/src/js/pages/register.js" type="module"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
