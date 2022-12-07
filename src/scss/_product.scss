@@ -1,0 +1,85 @@
+@import '_variables.scss';
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+.back {
+  text-decoration: none;
+  color: #333;
+  display: flex;
+
+  span {
+    margin-left: 3px;
+  }
+}
+
+.product-main {
+  .container {
+    max-width: 764px;
+  }
+}
+
+.carousel-item {
+  width: 100%;
+  height: 400px;
+  background-color: #333;
+
+  display: flex;
+  align-items: center;
+
+  img {
+    margin-inline: auto;
+    display: block;
+    max-height: 100%;
+    max-width: 100%;
+  }
+}
+
+.active,
+.carousel-item-next,
+.carousel-item-prev {
+  display: flex !important;
+  align-items: center;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+  span {
+    background-color: #333;
+    border-radius: 50%;
+  }
+}
+
+.title {
+  font-size: 21px;
+}
+
+.time {
+  color: $secondary;
+}
+
+.price {
+  color: $primary;
+  font-size: 21px;
+}
+
+.bid-form {
+  gap: 12px;
+
+  .btn {
+    height: 50px;
+  }
+
+  input {
+    flex: 1;
+  }
+}
+
+.product-main .row {
+  @include media-breakpoint-down(sm) {
+    flex-direction: column;
+
+    .col-7,
+    .col-5 {
+      width: 100%;
+    }
+  }
+}
