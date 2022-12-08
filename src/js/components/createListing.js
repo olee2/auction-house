@@ -18,7 +18,7 @@ export const createCard = (listing) => {
              <div class="card slide">
                 <img src=${image} alt="" />
                 <div class="product-info">
-                    <h3 class="card__title">${title}</h3>
+                    <h3 class="card__title"><a href="/product.html?id=${id}">${title}</a></h3>
                     ${timeLeft(endsAt)}
                     <p class="card__bids">${numBids} bids</p>
                     <p class="card__price">$${currentBid}</p>

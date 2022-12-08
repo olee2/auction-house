@@ -15,6 +15,17 @@
   .container {
     max-width: 764px;
   }
+
+  .form-control {
+    display: flex;
+    align-items: center;
+    flex: 1;
+
+    label {
+      font-size: 21px;
+      margin-right: 8px;
+    }
+  }
 }
 
 .carousel-item {
@@ -82,4 +93,16 @@
       width: 100%;
     }
   }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  outline: none;
+  border: none;
 }
