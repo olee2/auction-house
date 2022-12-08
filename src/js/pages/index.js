@@ -1,13 +1,12 @@
 import { getListings } from '../api/index.js';
-import { createCard, filterFinished } from '../components/index.js';
+import { createCard } from '../components/index.js';
 
 const listingsContainer = document.querySelector('.listings-container');
 
 const main = async () => {
   const listings = await getListings();
-  const onlyActive = filterFinished(listings);
 
-  const latest = onlyActive.slice(0, 8);
+  const latest = listings;
   console.log(latest);
 
   listingsContainer.innerHTML = latest

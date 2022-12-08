@@ -126,8 +126,19 @@ a {
 }
 
 .card {
+  color: inherit;
+  text-decoration: none;
+
   padding: 8px;
   justify-content: space-between;
+  transition: 0.2s;
+
+  &:hover {
+    color: inherit;
+    @include media-breakpoint-up(md) {
+      scale: 1.02;
+    }
+  }
 
   &__title {
     margin: 8px 0 4px 0;

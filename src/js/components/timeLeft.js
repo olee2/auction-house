@@ -16,10 +16,10 @@ export const timeLeft = (time) => {
     return `<p>${Math.ceil(days)} days left</p>`;
   }
   if (hours > 1) {
-    return `<p class="card__time">${Math.ceil(hours)} hours left</p>`;
+    return `<p class="time fw-bold">${Math.ceil(hours)} hours left</p>`;
   }
   if (minutes > 1) {
-    return `<p class="card__time">${Math.ceil(minutes)} minutes left</p>`;
+    return `<p class="time fw-bold">${Math.ceil(minutes)} minutes left</p>`;
   }
-  return `<p class="card__time">Less then a minute left</p>`;
+  return `<p class="">Less then a minute left</p>`;
 };
