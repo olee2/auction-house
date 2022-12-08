@@ -9,17 +9,17 @@ export const createInfo = (listing) => {
     bids,
   } = listing;
 
-  console.log(listing);
-
   const currentBid = bids.length ? bids[bids.length - 1].amount : 0;
 
-  return ` <div class="">
-                <h1 class="h3 title mb-2">${title}</h1>
-                <p class="description mb-2">${description}</p>
+  return ` <div>
+                <h1 class="h2 title mb-2">${title}</h1>
+                <p class="description mb-5">${
+                  description ? description : 'No description available'
+                }</p>
             </div>
-            <div class="col-6">
-                <p class="time">${timeLeft(endsAt)}</p>
-                <p class="mb-2">Current bid: <span class="price">$${currentBid}</span></p>
+            <div>
+                <div class="mb-3" >${timeLeft(endsAt)}</div>
+                <p class="mb-3">Current bid: <span class="price">$${currentBid}</span></p>
                 <form class="d-flex bid-form">
                 <div class="form-control">
                 <label for="bid">$</label>

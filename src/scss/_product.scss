@@ -14,15 +14,17 @@
 .product-main {
   .container {
     max-width: 764px;
+    border-radius: 0.375rem;
   }
 
   .form-control {
     display: flex;
     align-items: center;
     flex: 1;
+    max-width: 150px;
+    font-size: 21px;
 
     label {
-      font-size: 21px;
       margin-right: 8px;
     }
   }
@@ -61,6 +63,7 @@
 
 .title {
   font-size: 21px;
+  text-transform: capitalize;
 }
 
 .time {
@@ -87,11 +90,6 @@
 .product-main .row {
   @include media-breakpoint-down(sm) {
     flex-direction: column;
-
-    .col-7,
-    .col-5 {
-      width: 100%;
-    }
   }
 }
 
@@ -105,4 +103,5 @@ input::-webkit-inner-spin-button {
 input[type='number'] {
   outline: none;
   border: none;
+  max-width: 100px;
 }

@@ -143,6 +143,13 @@ a {
   &__title {
     margin: 8px 0 4px 0;
     font-size: 21px;
+    text-transform: capitalize;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    -moz-line-clamp: 1;
+    -moz-box-orient: vertical;
   }
 
   &__time {
