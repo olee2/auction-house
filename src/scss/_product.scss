@@ -27,6 +27,7 @@
     label {
       margin-right: 8px;
     }
+    
   }
 }
 
@@ -101,7 +102,16 @@ input::-webkit-inner-spin-button {
 
 /* Firefox */
 input[type='number'] {
-  outline: none;
-  border: none;
   max-width: 100px;
+  background-image: url(../../assets/img/dollar.svg);
+  background-repeat: no-repeat;
+  background-position: center left;
+  background-size: 21px;
+  padding-left: 21px;
+}
+
+.sort-form{
+  select{
+    flex: 1;
+  }
 }
