@@ -7,6 +7,8 @@ const email = document.querySelector('.email');
 const password = document.querySelector('.password');
 const signalContainer = document.querySelector('.signal');
 
+console.log(document.referrer);
+
 form.onsubmit = async (e) => {
   e.preventDefault();
 
@@ -29,7 +31,12 @@ form.onsubmit = async (e) => {
 
     storeUser(data);
 
-    location.assign(document.referrer);
+    //If the user came via the register form they are directed to the homepage, else back where they came from.
+    location.assign(
+      document.referrer.includes('/register')
+        ? './index.html'
+        : document.referrer
+    );
   } catch (error) {
     const { errors } = getError();
     signalContainer.innerHTML = errorHtml(errors[0].message);
