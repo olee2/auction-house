@@ -74,15 +74,18 @@ p {
   margin: 0;
 }
 
-a {
+a,
+.a {
   color: $secondary;
   font-style: italic;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .navbar-brand {
   margin-right: 67px;
   img {
-    max-width: 67px;
+    max-width: 80px;
   }
 }
 
@@ -105,6 +108,8 @@ a {
   background-position: center;
   background-size: cover;
   height: 500px;
+  max-height: 50vh;
+  min-height: 320px;
 
   .hero-center {
     width: 100%;
@@ -143,6 +148,7 @@ a {
   &__title {
     margin: 8px 0 4px 0;
     font-size: 21px;
+    font-family: Arial, Helvetica, sans-serif;
     text-transform: capitalize;
     overflow: hidden;
     display: -webkit-box;
@@ -180,6 +186,7 @@ main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1rem;
+  justify-content: center;
 }
 
 .social-icon {

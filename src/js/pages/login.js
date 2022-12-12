@@ -28,7 +28,8 @@ form.onsubmit = async (e) => {
     );
 
     storeUser(data);
-    //location.assign('../profile.html');
+
+    location.assign(document.referrer);
   } catch (error) {
     const { errors } = getError();
     signalContainer.innerHTML = errorHtml(errors[0].message);
