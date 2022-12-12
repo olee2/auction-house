@@ -1,8 +1,6 @@
 import { getUser } from '../storage/index.js';
 import { isLoggedIn } from '../components/index.js';
 
-const token = isLoggedIn() ? getUser().accessToken : '';
-
 /**
  * A function for generating options for http requests.
  * @param {string} method The http request method for the api call.
@@ -11,6 +9,9 @@ const token = isLoggedIn() ? getUser().accessToken : '';
  */
 
 export const options = (method, body) => {
+
+  const token = isLoggedIn() ? getUser().accessToken : '';
+
   const headers = {
     'Content-type': 'application/json',
     Authorization: `Bearer ${token}`,
