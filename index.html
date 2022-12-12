@@ -35,11 +35,8 @@
             <li class="nav-item">
               <a class="nav-link" href="profile.html">Profile</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="listings.html">Listings</a>
-            </li>
           </ul>
-          <button class="btn btn-outline-primary">Sign in</button>
+          <div class="d-flex nav-btn-container"></div>
         </div>
       </div>
     </nav>
@@ -54,17 +51,37 @@
             <span class="text-primary">Buy</span> or
             <span class="text-secondary">Sell</span> anything online
           </p>
-          <div class="btn-container mt-5 d-flex">
-            <button class="btn btn-outline-primary me-3">Learn more</button>
-            <button class="btn btn-secondary">
-              Go to listings <i class="bi bi-chevron-right"></i>
-            </button>
-          </div>
         </div>
       </div>
       <section>
+        <div class="bg-light mb-5 border-bottom">
+          <div class="container">
+            <div class="row pb-3 pt-3">
+              <div class="col">
+                <form class="d-flex search-form" role="search">
+                  <input
+                    class="form-control me-2 search-field"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                  />
+                  <button class="btn btn-outline-secondary" type="submit">
+                    Search
+                  </button>
+                </form>
+              </div>
+              <div class="col-3"></div>
+              <div class="col-3 d-flex sort-form align-items-center">
+                <label class="me-2" for="sort">Sort by</label>
+                <select class="form-select" id="sort">
+                  <option id="newest">Ending soon</option>
+                  <option id="oldest">Newly added</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="container">
-          <h2 class="text-center m-5 h3">Last chance</h2>
           <div class="slider listings-container"></div>
         </div>
       </section>
@@ -123,5 +140,6 @@
     </div>
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="src/js/pages/index.js" type="module"></script>
+    <script src="src/js/components/navBtns.js" type="module"></script>
   </body>
 </html>
