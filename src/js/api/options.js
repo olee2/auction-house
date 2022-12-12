@@ -1,6 +1,7 @@
 import { getUser } from '../storage/index.js';
+import { isLoggedIn } from '../components/index.js';
 
-const token = getUser().accessToken;
+const token = isLoggedIn() ? getUser().accessToken : '';
 
 /**
  * A function for generating options for http requests.

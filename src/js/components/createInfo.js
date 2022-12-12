@@ -1,4 +1,4 @@
-import { timeLeft } from './timeLeft.js';
+import { timeLeft, isLoggedIn } from './index.js';
 
 export const createInfo = (listing) => {
   const {
@@ -11,6 +11,8 @@ export const createInfo = (listing) => {
 
   const currentBid = bids.length ? bids[bids.length - 1].amount : 0;
 
+  const disabled = !isLoggedIn() ? 'disabled' : '';
+
   return ` <div>
                 <h1 class="h2 title mb-2">${title}</h1>
                 <p class="description mb-5">${
@@ -22,6 +24,7 @@ export const createInfo = (listing) => {
                 <p class="mb-3">Current bid: <span class="price">$${currentBid}</span></p>
                 <form class="d-flex bid-form">
                 <input
+                    ${disabled}
                     type="number"
                     class="form-control"
                     name="amount"
@@ -32,7 +35,7 @@ export const createInfo = (listing) => {
                     min=${currentBid + 1}
                 />
     
-                <button type="submit" class="btn btn-secondary">Place bid</button>
+                <button type="submit" ${disabled} class="btn btn-secondary">Place bid</button>
                 </form>
             </div>`;
 };
