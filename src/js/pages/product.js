@@ -5,12 +5,30 @@ import {
   createInfo,
   setLoader,
   replaceErrorImg,
+  bidHistory,
+  isLoggedIn,
 } from '../components/index.js';
 
 const id = new URLSearchParams(document.location.search).get('id');
 
 const infoContainer = document.querySelector('.info-container');
 const mediaContainer = document.querySelector('.carousel-inner');
+const historyContainer = document.querySelector('.history-container');
+const bidContainer = document.querySelector('.bid-history');
+const historyLink = document.querySelector('.show-history-link');
+const loginNotice = document.querySelector('.login-notice');
+let hidden = true;
+
+if (!isLoggedIn()) {
+  bidContainer.style.display = 'none';
+  loginNotice.style.display = 'block';
+}
+
+historyLink.onclick = () => {
+  historyContainer.classList.toggle('show-history');
+  historyLink.innerText = hidden ? 'Hide all bids' : 'Show all bids';
+  hidden = !hidden;
+};
 
 infoContainer.innerHTML = setLoader();
 
@@ -18,7 +36,7 @@ const url = `https://nf-api.onrender.com/api/v1/auction/listings/${id}?_bids=tru
 
 apiCall(url, options())
   .then((data) => {
-    const { media, title } = data;
+    const { media, title, bids } = data;
 
     if (media.length) {
       mediaContainer.innerHTML = media
@@ -30,6 +48,7 @@ apiCall(url, options())
     }
 
     infoContainer.innerHTML = createInfo(data);
+    historyContainer.innerHTML = bidHistory(bids);
 
     document.querySelector('.carousel-item').classList.add('active');
 

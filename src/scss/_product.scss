@@ -27,7 +27,6 @@
     label {
       margin-right: 8px;
     }
-    
   }
 }
 
@@ -110,8 +109,31 @@ input[type='number'] {
   padding-left: 21px;
 }
 
-.sort-form{
-  select{
+.sort-form {
+  select {
     flex: 1;
   }
+}
+
+.bid-history {
+  transition: 0.1s ease-in-out;
+}
+
+.history-container {
+  height: 0;
+  overflow: hidden;
+  transition: 0.2s ease-in-out;
+}
+
+.show-history {
+  height: auto;
+  transition: 0.2s ease-in-out;
+}
+
+.show-history-link {
+  display: inline;
+}
+
+.login-notice {
+  display: none;
 }
