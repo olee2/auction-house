@@ -1,0 +1,15 @@
+.profile-container {
+  max-width: 400px;
+  margin-inline: auto;
+}
+
+.img-thumbnail {
+  max-width: 300px !important;
+}
+
+.profile-listings{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  justify-content: center;
+}

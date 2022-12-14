@@ -8,5 +8,104 @@
     <title>The Auction House - User Profile</title>
     <link rel="stylesheet" href="dist/css/styles.css" />
   </head>
-  <body></body>
+  <body class="d-flex flex-column">
+    <nav class="navbar navbar-expand-lg bg-light border-bottom pt-4 pb-4">
+      <div class="container-fluid">
+        <a class="navbar-brand text-primary" href="index.html"
+          ><img src="assets/img/logo.svg"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 m b-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="profile.html">Profile</a>
+            </li>
+          </ul>
+          <div class="d-flex nav-btn-container"></div>
+        </div>
+      </div>
+    </nav>
+    <main class="d-flex align-items-center">
+      <div class="container">
+        <div class="row">
+          <div
+          class="d-flex flex-column align-items-center profile-container col-4"
+        ></div>
+        <div class="col-7 border shadow-sm p-3">
+          <h2 class="h3 text-center">Your Listings</h2>
+          <div class="profile-listings"></div>
+        </div>
+      </div>
+        </div>
+      
+    </main>
+    <div class="container-fluid">
+      <footer
+        class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top"
+      >
+        <div class="">
+          <p class="fw-bold">The Auction House</p>
+          <p>
+            Copyright
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-c-circle"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8Zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM8.146 4.992c-1.212 0-1.927.92-1.927 2.502v1.06c0 1.571.703 2.462 1.927 2.462.979 0 1.641-.586 1.729-1.418h1.295v.093c-.1 1.448-1.354 2.467-3.03 2.467-2.091 0-3.269-1.336-3.269-3.603V7.482c0-2.261 1.201-3.638 3.27-3.638 1.681 0 2.935 1.054 3.029 2.572v.088H9.875c-.088-.879-.768-1.512-1.729-1.512Z"
+              />
+            </svg>
+            2022. All rights reserved
+          </p>
+        </div>
+
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+          <li class="ms-3">
+            <a class="text-muted" href="#"
+              ><img
+                src="/assets/img/linkedin.svg"
+                alt="linkedin logo"
+                class="social-icon"
+            /></a>
+          </li>
+          <li class="ms-3">
+            <a class="text-muted" href="#"
+              ><img
+                src="/assets/img/facebook.svg"
+                alt="facebook logo"
+                class="social-icon"
+            /></a>
+          </li>
+          <li class="ms-3">
+            <a class="text-muted" href="#"
+              ><img
+                src="/assets/img/twitter.svg"
+                alt="twitter logo"
+                class="social-icon"
+            /></a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="src/js/pages/profile.js" type="module"></script>
+    <script src="src/js/components/navBtns.js" type="module"></script>
+  </body>
 </html>

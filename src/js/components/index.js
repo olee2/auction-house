@@ -8,3 +8,4 @@ export * from './replaceErrorImage.js';
 export * from './createBidHistory.js';
 export * from './isLoggedIn.js';
 export * from './logOut.js';
+export * from './createProfile.js';
