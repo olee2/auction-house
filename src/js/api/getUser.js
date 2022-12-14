@@ -7,7 +7,13 @@ import { apiCall, options } from './index.js';
  */
 
 export const getUserFromApi = async (name) => {
-  const url = `https://nf-api.onrender.com/api/v1/auction/profiles/${name};`;
-  const apiUser = apiCall(url, options());
+  const url = `https://nf-api.onrender.com/api/v1/auction/profiles/${name}?_listings=true`;
+  const apiUser = await apiCall(url, options());
+  return apiUser;
+};
+
+export const getUsersListings = async (name) => {
+  const url = `https://nf-api.onrender.com/api/v1/auction/profiles/${name}/listings?_bids=true`;
+  const apiUser = await apiCall(url, options());
   return apiUser;
 };
