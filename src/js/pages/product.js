@@ -1,10 +1,9 @@
 import { options, apiCall, placeBid } from '../api/index.js';
-import { updateCredits } from '../storage/index.js';
+import { updateUser } from '../storage/index.js';
 import {
   createSlide,
   createInfo,
   setLoader,
-  replaceErrorImg,
   bidHistory,
   isLoggedIn,
 } from '../components/index.js';
@@ -32,11 +31,13 @@ historyLink.onclick = () => {
 
 infoContainer.innerHTML = setLoader();
 
-const url = `https://nf-api.onrender.com/api/v1/auction/listings/${id}?_bids=true`;
+const url = `https://nf-api.onrender.com/api/v1/auction/listings/${id}?_bids=true&_seller=true`;
 
 apiCall(url, options())
   .then((data) => {
     const { media, title, bids } = data;
+
+    console.log(data);
 
     if (media.length) {
       mediaContainer.innerHTML = media
@@ -52,7 +53,7 @@ apiCall(url, options())
 
     document.querySelector('.carousel-item').classList.add('active');
 
-    replaceErrorImg();
+    //replaceErrorImg();
   })
   .then((data) => {
     const bidForm = document.querySelector('form');
@@ -64,9 +65,9 @@ apiCall(url, options())
         const formData = new FormData(form);
         const body = Object.fromEntries(formData.entries());
         body.amount = Number(body.amount);
-
         await placeBid(body, id);
-        await updateCredits();
+        await updateUser();
+        location.reload();
       } catch (error) {
         console.log(error);
       }
