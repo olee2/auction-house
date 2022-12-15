@@ -1,17 +1,37 @@
 import { timeLeft, isLoggedIn } from './index.js';
+import { getUser } from '../storage/index.js';
 
 export const createInfo = (listing) => {
+  const {email: userEmail} = getUser();
+  
+  console.log(listing)
   const {
     title,
     description,
     endsAt,
     _count: { bids: numBids },
+    seller: {email: sellerEmail},
     bids,
   } = listing;
 
-  const currentBid = bids.length ? bids[bids.length - 1].amount : 0;
+  let sortedBids = bids.sort((a, b) => a.amount - b.amount);
 
-  const disabled = !isLoggedIn() ? 'disabled' : '';
+  const currentBid = sortedBids.length
+    ? sortedBids[sortedBids.length - 1].amount
+    : 0;
+
+  console.log(sortedBids);
+
+  const disabled = () => {
+    if(!isLoggedIn){
+      return 'disabled'
+    }else if(userEmail === sellerEmail){
+      return 'disabled'
+    }else{
+      return ''
+    }
+  }
+
 
   return ` <div>
                 <h1 class="h2 title mb-2">${title}</h1>
@@ -24,7 +44,7 @@ export const createInfo = (listing) => {
                 <p class="mb-3">Current bid: <span class="price">$${currentBid}</span></p>
                 <form class="d-flex bid-form">
                 <input
-                    ${disabled}
+                    ${disabled()}
                     type="number"
                     class="form-control"
                     name="amount"
@@ -35,7 +55,7 @@ export const createInfo = (listing) => {
                     min=${currentBid + 1}
                 />
     
-                <button type="submit" ${disabled} class="btn btn-secondary">Place bid</button>
+                <button type="submit" ${disabled()} class="btn btn-secondary">Place bid</button>
                 </form>
             </div>`;
 };
