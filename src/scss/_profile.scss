@@ -4,12 +4,21 @@
 }
 
 .img-thumbnail {
-  max-width: 300px !important;
+  max-width: 200px !important;
 }
 
-.profile-listings{
+.profile-listings {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1rem;
   justify-content: center;
+}
+
+.profile-main .container {
+  max-width: 900px !important;
+}
+
+.edit-avatar-close{
+  display: block;
+  text-align: end;
 }

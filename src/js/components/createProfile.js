@@ -1,16 +1,19 @@
-export const createProfile = (profile) => {
-  const { name, avatar, credits } = profile;
+export const createProfile = (profile, error = false) => {
+  console.log(profile);
+  const { name, avatar, credits, wins } = profile;
 
   return `
             <img
-              src=${avatar ? avatar : '../assets/img/man.svg'}
+              src=${avatar ? avatar : '../assets/img/avatar_placeholder.png'}
               class="align-self-center img-thumbnail mb-3 rounded-circle profile-image"
+              onerror="this.src='./assets/img/avatar_placeholder.png'" 
               alt=""
             />
-            <h1 class="h1 w-100 text-center">${name}</h1>
-            <div class="d-flex align-items-center justify-content-between w-100 border shadow-sm p-3 mt-4">
+            <a class="a edit-avatar-open">Edit Avatar</a>
+            <h1 class="h2 w-100 text-center">${name}</h1>
+            <div class="d-flex  align-items-start justify-content-between w-100 border p-3 mt-4">
               <p>Available Credits: $${credits}</p>
-              <button class="btn btn-secondary">New Listing</button>
+              <p>Auctions won: ${wins.length}</p>
             </div>
             
             `;

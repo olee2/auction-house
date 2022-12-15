@@ -26,7 +26,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 m b-lg-0">
+          <ul class="navbar-nav me-auto b-lg-0">
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="index.html">Home</a>
             </li>
@@ -38,19 +38,38 @@
         </div>
       </div>
     </nav>
-    <main class="d-flex align-items-center">
+    <main class="d-flex align-items-center pb-5 profile-main">
       <div class="container">
-        <div class="row">
-          <div
-          class="d-flex flex-column align-items-center profile-container col-4"
+        <div
+          class="d-flex flex-column align-items-center profile-container mt-5 mb-5"
         ></div>
-        <div class="col-7 border shadow-sm p-3">
-          <h2 class="h3 text-center">Your Listings</h2>
-          <div class="profile-listings"></div>
+        <div class="border-top pt-5">
+          <div class="d-flex w-100 justify-content-center mb-5">
+            <h2 class="h3 me-3">My Listings</h2>
+            <button class="btn btn-secondary">+ New Listing</button>
+          </div>
+
+          <div class="profile-listings justify-content-center"></div>
+          <div class="row"></div>
         </div>
       </div>
+      <dialog class="border shadow edit-avatar-modal">
+        <div class="d-flex w-100 justify-content-end">
+          <a class="edit-avatar-close">
+            <img src="./assets/img/close.svg" />
+          </a>
         </div>
-      
+        <form class="d-flex edit-avatar-form mt-3">
+          <input
+            class="form-control me-2 edit-avatar-input"
+            type="url"
+            placeholder="Avatar URL"
+            name="avatar"
+            required
+          />
+          <button class="btn btn-outline-primary" type="submit">Submit</button>
+        </form>
+      </dialog>
     </main>
     <div class="container-fluid">
       <footer
