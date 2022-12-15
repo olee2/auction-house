@@ -4,7 +4,6 @@ export * from './error.js';
 export * from './loader.js';
 export * from './createSlide.js';
 export * from './createInfo.js';
-export * from './replaceErrorImage.js';
 export * from './createBidHistory.js';
 export * from './isLoggedIn.js';
 export * from './logOut.js';

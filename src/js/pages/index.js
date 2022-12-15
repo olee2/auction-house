@@ -1,5 +1,5 @@
 import { getListings } from '../api/index.js';
-import { createCard, replaceErrorImg } from '../components/index.js';
+import { createCard } from '../components/index.js';
 
 const listingsContainer = document.querySelector('.listings-container');
 const searchField = document.querySelector('.search-field');
@@ -20,7 +20,6 @@ const main = async () => {
   listingsContainer.innerHTML = listings
     .map((listing) => createCard(listing))
     .join('');
-  replaceErrorImg();
 };
 
 searchForm.onsubmit = async (e) => {

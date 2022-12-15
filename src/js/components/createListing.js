@@ -16,7 +16,7 @@ export const createCard = (listing) => {
 
   return `
              <a href="/product.html?id=${id}" class="card slide">
-                <img src=${image} alt="" />
+                <img src=${image} alt="" onerror="this.src='./assets/img/placeholder.jpg'" />
                 <div class="product-info">
                     <h3 class="card__title">${title}</h3>
                     ${timeLeft(endsAt)}
@@ -27,3 +27,26 @@ export const createCard = (listing) => {
   
   `;
 };
+
+export const createProfileCard = (listing) => {
+  const {
+    id,
+    title,
+    endsAt,
+    media,
+  } = listing;
+
+  const image = media.length ? media[0] : './assets/img/placeholder.jpg';
+
+  return `
+             <a href="/product.html?id=${id}" class="card slide">
+                <img src=${image} alt="" onerror="this.src='./assets/img/placeholder.jpg'" />
+                <div class="product-info">
+                    <h3 class="card__title">${title}</h3>
+                    ${timeLeft(endsAt)}
+                </div>
+            </a>
+  
+  `;
+};
+
