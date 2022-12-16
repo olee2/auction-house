@@ -10,16 +10,20 @@ export const timeLeft = (time) => {
   const weeks = days / 7;
 
   if (weeks > 1) {
-    return `<p>${Math.ceil(weeks)} weeks left</p>`;
+    return `<span>${Math.ceil(weeks)} weeks</span>`;
   }
   if (days > 1) {
-    return `<p>${Math.ceil(days)} days left</p>`;
+    return `<span>${Math.ceil(days)} days</span>`;
   }
   if (hours > 1) {
-    return `<p class="time fw-bold">${Math.ceil(hours)} hours left</p>`;
+    return `<span class="time fw-bold">${Math.ceil(hours)} hours</span>`;
   }
   if (minutes > 1) {
-    return `<p class="time fw-bold">${Math.ceil(minutes)} minutes left</p>`;
+    return `<span class="time fw-bold">${Math.ceil(minutes)} minutes </span>`;
   }
-  return `<p class="">Less then a minute left</p>`;
+  if (seconds > 1) {
+    return `<span class="time fw-bold">Less then a minute</span>`;
+  }
+
+  return 'Finished';
 };
