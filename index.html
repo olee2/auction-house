@@ -56,7 +56,7 @@
       <section>
         <div class="bg-light mb-5 border-bottom">
           <div class="container">
-            <div class="row pb-3 pt-3">
+            <div class="row pb-3 pt-3 search-row">
               <div class="col">
                 <form class="d-flex search-form" role="search">
                   <input
@@ -70,19 +70,26 @@
                   </button>
                 </form>
               </div>
-              <div class="col-3"></div>
-              <div class="col-3 d-flex sort-form align-items-center">
-                <label class="me-2" for="sort">Sort by</label>
+
+              <div class="col d-flex sort-form align-items-center">
                 <select class="form-select" id="sort">
-                  <option id="newest">Ending soon</option>
-                  <option id="oldest">Newly added</option>
+                  <option id="placeholder" value="" selected>Sort by..</option>
+                  <option id="title" value="sort=title&sortOrder=asc">
+                    Title
+                  </option>
+                  <option id="created" value="sort=created&sortOrder=asc">
+                    Created
+                  </option>
+                  <option id="ends" value="sort=endsAt&sortOrder=asc">
+                    End soon
+                  </option>
                 </select>
               </div>
             </div>
           </div>
         </div>
         <div class="container">
-          <div class="slider listings-container"></div>
+          <div class="listings-container"></div>
         </div>
       </section>
     </main>

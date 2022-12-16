@@ -1,4 +1,4 @@
-import { options, apiCall, placeBid } from '../api/index.js';
+import { options, apiCall, placeBid, deleteListing } from '../api/index.js';
 import { updateUser } from '../storage/index.js';
 import {
   createSlide,
@@ -15,12 +15,18 @@ const mediaContainer = document.querySelector('.carousel-inner');
 const historyContainer = document.querySelector('.history-container');
 const bidContainer = document.querySelector('.bid-history');
 const historyLink = document.querySelector('.show-history-link');
-const loginNotice = document.querySelector('.login-notice');
+const backArrow = document.querySelector('.back');
 let hidden = true;
+
+const referrer = document.referrer;
+const current = location.href;
+
+backArrow.addEventListener('click', () => {
+  return location.assign(referrer === current ? 'index.html' : referrer);
+});
 
 if (!isLoggedIn()) {
   bidContainer.style.display = 'none';
-  loginNotice.style.display = 'block';
 }
 
 historyLink.onclick = () => {
@@ -37,8 +43,6 @@ apiCall(url, options())
   .then((data) => {
     const { media, title, bids } = data;
 
-    console.log(data);
-
     if (media.length) {
       mediaContainer.innerHTML = media
         .map((m) => createSlide(m, title))
@@ -51,25 +55,43 @@ apiCall(url, options())
     infoContainer.innerHTML = createInfo(data);
     historyContainer.innerHTML = bidHistory(bids);
 
-    document.querySelector('.carousel-item').classList.add('active');
+    const deleteBtn = document.querySelector('.delete-listing-btn');
 
-    //replaceErrorImg();
+    if (deleteBtn) {
+      deleteBtn.onclick = async () => {
+        try {
+          await deleteListing(id);
+        } catch (error) {
+          console.log(error);
+        } finally {
+          location.assign('profile.html');
+        }
+      };
+    }
+
+    if (!bids.length) {
+      bidContainer.style.display = 'none';
+    }
+
+    document.querySelector('.carousel-item').classList.add('active');
   })
   .then((data) => {
     const bidForm = document.querySelector('form');
-    bidForm.onsubmit = async (e) => {
-      e.preventDefault();
+    if (bidForm) {
+      bidForm.onsubmit = async (e) => {
+        e.preventDefault();
 
-      try {
-        const form = e.target;
-        const formData = new FormData(form);
-        const body = Object.fromEntries(formData.entries());
-        body.amount = Number(body.amount);
-        await placeBid(body, id);
-        await updateUser();
-        location.reload();
-      } catch (error) {
-        console.log(error);
-      }
-    };
+        try {
+          const form = e.target;
+          const formData = new FormData(form);
+          const body = Object.fromEntries(formData.entries());
+          body.amount = Number(body.amount);
+          await placeBid(body, id);
+          await updateUser();
+          location.reload();
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
   });

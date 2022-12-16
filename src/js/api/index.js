@@ -4,3 +4,5 @@ export * from './options.js';
 export * from './placeBid.js';
 export * from './getUser.js';
 export * from './updateProfile.js';
+export * from './createListing.js';
+export * from './deleteListing.js';

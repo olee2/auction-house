@@ -4,10 +4,14 @@ import { createCard } from '../components/index.js';
 const listingsContainer = document.querySelector('.listings-container');
 const searchField = document.querySelector('.search-field');
 const searchForm = document.querySelector('.search-form');
+const sort = document.querySelector('#sort');
+
+sort.onchange = (e) => {
+  e.target.value ? main() : null;
+};
 
 const main = async () => {
-  let listings = await getListings();
-  console.log(listings);
+  let listings = await getListings(sort.value);
   if (searchField.value) {
     listings = listings.filter((listing) => {
       return (
@@ -17,9 +21,14 @@ const main = async () => {
     });
   }
 
-  listingsContainer.innerHTML = listings
-    .map((listing) => createCard(listing))
-    .join('');
+  if (!listings.length) {
+    listingsContainer.innerHTML =
+      '<p class="fw-bold ">No such listing found. Please try another search.</p>';
+  } else {
+    listingsContainer.innerHTML = listings
+      .map((listing) => createCard(listing))
+      .join('');
+  }
 };
 
 searchForm.onsubmit = async (e) => {
