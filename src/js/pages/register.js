@@ -30,7 +30,7 @@ form.onsubmit = async (e) => {
       'https://nf-api.onrender.com/api/v1/auction/auth/register',
       options
     );
-    console.log(response);
+    location.assign('login.html');
   } catch (error) {
     const { errors } = getError();
     signalContainer.innerHTML = errorHtml(errors[0].message);
