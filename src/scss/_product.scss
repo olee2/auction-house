@@ -20,8 +20,7 @@
   .form-control {
     display: flex;
     align-items: center;
-    flex: 1;
-    max-width: 150px;
+    max-width: none;
     font-size: 21px;
 
     label {
@@ -80,9 +79,7 @@
 
   .btn {
     height: 50px;
-  }
-
-  input {
+    min-width: fit-content;
     flex: 1;
   }
 }
@@ -93,6 +90,15 @@
   }
 }
 
+.product-main {
+  padding-bottom: 0;
+  .container {
+    @include media-breakpoint-down(sm) {
+      margin-top: 0 !important;
+      border: none !important;
+    }
+  }
+}
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -134,6 +140,17 @@ input[type='number'] {
   display: inline;
 }
 
-.login-notice {
-  display: none;
+.edit-delete-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  @include media-breakpoint-down(sm) {
+    align-items: flex-start;
+    margin-top: 12px;
+  }
+}
+
+.edit-listing-btn,
+.delete-listing-btn {
+  width: 100px;
 }

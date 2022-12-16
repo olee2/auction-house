@@ -18,7 +18,15 @@
   max-width: 900px !important;
 }
 
-.edit-avatar-close{
+.edit-avatar-close {
   display: block;
   text-align: end;
+}
+
+.edit-avatar-modal {
+  max-width: 350px;
+}
+
+.create-listing-modal {
+  max-width: 600px;
 }

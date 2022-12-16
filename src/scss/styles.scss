@@ -183,7 +183,7 @@ main {
   padding-bottom: 20px;
 }
 
-.slider {
+.listings-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1rem;
@@ -192,4 +192,14 @@ main {
 
 .social-icon {
   width: 28px;
+}
+
+.search-row {
+  @include media-breakpoint-down(sm) {
+    flex-direction: column-reverse;
+
+    .col:first-child {
+      margin-top: 1rem;
+    }
+  }
 }

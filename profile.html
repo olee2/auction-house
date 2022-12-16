@@ -43,22 +43,101 @@
         <div
           class="d-flex flex-column align-items-center profile-container mt-5 mb-5"
         ></div>
-        <div class="border-top pt-5">
-          <div class="d-flex w-100 justify-content-center mb-5">
+        <div class="">
+          <div
+            class="d-flex w-100 justify-content-between mb-5 pb-3 border-bottom"
+          >
             <h2 class="h3 me-3">My Listings</h2>
-            <button class="btn btn-secondary">+ New Listing</button>
+            <button class="btn btn-secondary create-listing-btn">
+              + New Listing
+            </button>
           </div>
 
-          <div class="profile-listings justify-content-center"></div>
+          <div class="profile-listings justify-content-center container"></div>
           <div class="row"></div>
         </div>
       </div>
+      <dialog class="border shadow create-listing-modal">
+        <div
+          class="d-flex w-100 justify-content-between border-bottom align-items-center pb-2"
+        >
+          <h3 class="h4">Create Listing</h3>
+          <a class="create-listing-close">
+            <img src="./assets/img/close.svg" />
+          </a>
+        </div>
+        <form class="create-listing-form mt-3">
+          <div class="row">
+            <div class="">
+              <div class="mb-3">
+                <label for="listing-title" class="mb-2">Title:</label>
+                <input
+                  class="form-control"
+                  id="listing-title"
+                  type="text"
+                  placeholder="Pick a title"
+                  name="title"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="listing-description" class="mb-2"
+                  >Description:</label
+                >
+                <textarea
+                  name="description"
+                  class="form-control"
+                  id="listing-description"
+                  placeholder="Short description"
+                  cols="30"
+                  rows="10"
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="end-time" class="mb-2">Auction ends at:</label>
+                <input
+                  type="datetime-local"
+                  class="form-control create-listing-date"
+                  id="end-time"
+                  name="endsAt"
+                />
+              </div>
+            </div>
+            <div class="">
+              <div>
+                <label class="mb-2" for="media">Add images:</label>
+                <div class="d-flex">
+                  <input
+                    class="form-control me-2 add-media-input"
+                    id="media"
+                    type="url"
+                    placeholder="Image URL"
+                  />
+                  <button
+                    class="btn btn-outline-primary add-media-btn"
+                    type="button"
+                  >
+                    Add
+                  </button>
+                </div>
+                <div class="added-media-container mt-3"></div>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-secondary mt-3" type="submit">
+            Create Listing
+          </button>
+        </form>
+      </dialog>
+
       <dialog class="border shadow edit-avatar-modal">
-        <div class="d-flex w-100 justify-content-end">
+        <div class="d-flex w-100 justify-content-between border-bottom pb-2">
+          <p>Edit Avatar</p>
           <a class="edit-avatar-close">
             <img src="./assets/img/close.svg" />
           </a>
         </div>
+        <div class="avatar-signal text-center mt-3"></div>
         <form class="d-flex edit-avatar-form mt-3">
           <input
             class="form-control me-2 edit-avatar-input"

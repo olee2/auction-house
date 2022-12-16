@@ -9,7 +9,6 @@ export const updateUser = async () => {
   const localUser = getUser();
   const { name } = localUser;
   const updatedUser = await getUserFromApi(name);
-  console.log(updatedUser)
   const { credits, avatar, wins } = updatedUser;
   storeUser({ ...localUser, credits, avatar, wins });
 };
