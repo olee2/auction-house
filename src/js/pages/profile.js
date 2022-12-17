@@ -31,6 +31,9 @@ const createListingModal = document.querySelector('.create-listing-modal');
 const createListingForm = document.querySelector('.create-listing-form');
 const createListingClose = document.querySelector('.create-listing-close');
 const createListingDate = document.querySelector('.create-listing-date');
+const createListingSignal = document.querySelector(
+  '.create-listing-signal-container'
+);
 
 const date = new Date();
 
@@ -44,9 +47,6 @@ const currentValue = `${year}-${month + 1}-${day}T${hours + 1}:${
   minutes < 10 ? '0' + minutes : minutes
 }`;
 
-createListingDate.value = currentValue;
-createListingDate.min = currentValue;
-
 const addMediaInput = document.querySelector('.add-media-input');
 const addMediaBtn = document.querySelector('.add-media-btn');
 const addedMediaContainer = document.querySelector('.added-media-container');
@@ -55,6 +55,7 @@ const imgArray = [];
 
 createListingForm.onsubmit = async (e) => {
   e.preventDefault();
+  createListingSignal.innerHTML = setLoader();
   try {
     const form = e.target;
     const formData = new FormData(form);
@@ -62,19 +63,23 @@ createListingForm.onsubmit = async (e) => {
     body.media = imgArray;
     body.endsAt = new Date(body.endsAt);
     await createListing(body);
-
     location.reload();
   } catch (error) {
-    console.log(error);
+    const { errors } = getError();
+    createListingSignal.innerHTML = errorHtml(errors[0].message);
   }
 };
 
 createListingBtn.onclick = () => {
+  //Since the form is reset when the modal closes, the datetime is set when the modal opens.
+  createListingDate.value = currentValue;
+  createListingDate.min = currentValue;
   createListingModal.showModal();
 };
 
 createListingClose.onclick = () => {
   createListingModal.close();
+  createListingForm.reset();
 };
 
 const updateAddedMedia = () => {
