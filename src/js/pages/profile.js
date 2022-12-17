@@ -154,9 +154,14 @@ editAvatarForm.onsubmit = async (e) => {
 
 const main = async () => {
   const listings = await getUsersListings(name);
-  listingsContainer.innerHTML = listings
-    .map((listing) => createCard(listing))
-    .join('');
+
+  if (listings.length) {
+    listingsContainer.innerHTML = listings
+      .map((listing) => createCard(listing))
+      .join('');
+  } else {
+    listingsContainer.innerHTML = `<p class="text-center fw-bold fs-4">No listings yet. </p>`;
+  }
 };
 
 main();
