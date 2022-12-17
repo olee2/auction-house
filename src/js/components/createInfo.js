@@ -59,8 +59,7 @@ export const createInfo = (listing) => {
   const isOwnListing = () => {
     if (userEmail === sellerEmail) {
       return `<div class="edit-delete-container">
-                <button type="button" class="btn btn-outline-primary delete-listing-btn mb-3">Delete</button>
-                <button type="button" class="btn btn-outline-primary edit-listing-btn">Edit</button>
+                <a class="a delete-listing-btn">Delete listing</a>
               </div>`;
     } else {
       return ` 
