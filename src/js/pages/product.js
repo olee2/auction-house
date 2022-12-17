@@ -16,6 +16,7 @@ const historyContainer = document.querySelector('.history-container');
 const bidContainer = document.querySelector('.bid-history');
 const historyLink = document.querySelector('.show-history-link');
 const backArrow = document.querySelector('.back');
+const carouselBtns = document.querySelectorAll('.carousel-btn');
 let hidden = true;
 
 const referrer = document.referrer;
@@ -50,6 +51,12 @@ apiCall(url, options())
     } else {
       mediaContainer.innerHTML =
         "<div class='carousel-item'><img src='./assets/img/placeholder.jpg' /><div>";
+    }
+
+    if (mediaContainer.childNodes.length === 1) {
+      carouselBtns.forEach((btn) => {
+        btn.style.display = 'none';
+      });
     }
 
     infoContainer.innerHTML = createInfo(data);
