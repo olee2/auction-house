@@ -1,10 +1,14 @@
 import { timeLeft, isLoggedIn } from './index.js';
 import { getUser } from '../storage/index.js';
 
+/**
+ * A function for generating the html for the information on a specific listing.
+ * @param {object} listing
+ * @returns Html for info on a specific listing.
+ */
+
 export const createInfo = (listing) => {
   const { email: userEmail, credits } = getUser() ? getUser() : { email: '' };
-
-  console.log(credits);
 
   const {
     title,
@@ -21,19 +25,25 @@ export const createInfo = (listing) => {
     ? sortedBids[sortedBids.length - 1].amount
     : 0;
 
+  // Verifying if the bid form should be active or disabled.
   const disabled = () => {
     if (!isLoggedIn()) {
       return 'disabled';
     } else if (userEmail === sellerEmail) {
+      return 'disabled';
+    } else if (credits <= currentBid) {
       return 'disabled';
     } else {
       return '';
     }
   };
 
+  // Giving additional information relevant for the bid form.
   const bidOption = () => {
     if (isLoggedIn() && userEmail !== sellerEmail) {
-      return `<p class="mt-3">Available Credits: $${credits}</p>`;
+      return `<p class="mt-3">Available Credits: $${credits}</p> ${
+        disabled() ? '<p>(Insufficient funds)</p>' : ''
+      }`;
     } else if (!isLoggedIn()) {
       return `        
         <p class="login-notice mt-3">
@@ -45,6 +55,7 @@ export const createInfo = (listing) => {
     }
   };
 
+  //Verify if it is the logged in users' listing and returns either bid form or btns for edit/delete.
   const isOwnListing = () => {
     if (userEmail === sellerEmail) {
       return `<div class="edit-delete-container">

@@ -1,3 +1,9 @@
+/**
+ * This is a function for returning html for the remaining time of an auction.
+ * @param {string} time
+ * @returns Html for the time left of an auction.
+ */
+
 export const timeLeft = (time) => {
   const now = new Date().getTime();
   const then = new Date(time).getTime();

@@ -1,4 +1,10 @@
-export const createProfile = (profile, error = false) => {
+/**
+ * A function for generating profile html.
+ * @param {object} profile
+ * @returns Html for profile.
+ */
+
+export const createProfile = (profile) => {
   const { name, avatar, credits, wins } = profile;
 
   return `
