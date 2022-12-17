@@ -9,7 +9,7 @@
 
 .profile-listings {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, 250px);
   gap: 1rem;
   justify-content: center;
 }
@@ -29,4 +29,8 @@
 
 .create-listing-modal {
   max-width: 600px;
+}
+
+.added-media-container {
+  overflow-wrap: anywhere;
 }
