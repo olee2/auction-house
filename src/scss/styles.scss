@@ -209,3 +209,8 @@ main {
     font-style: normal;
   }
 }
+
+input:disabled,
+.btn:disabled {
+  cursor: not-allowed;
+}
