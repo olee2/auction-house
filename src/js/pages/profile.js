@@ -153,14 +153,20 @@ editAvatarForm.onsubmit = async (e) => {
 };
 
 const main = async () => {
-  const listings = await getUsersListings(name);
+  try {
+    const listings = await getUsersListings(name);
 
-  if (listings.length) {
-    listingsContainer.innerHTML = listings
-      .map((listing) => createCard(listing))
-      .join('');
-  } else {
-    listingsContainer.innerHTML = `<p class="text-center fw-bold fs-4">No listings yet. </p>`;
+    if (listings.length) {
+      listingsContainer.innerHTML = listings
+        .map((listing) => createCard(listing))
+        .join('');
+    } else {
+      listingsContainer.innerHTML = `<p class="text-center fw-bold fs-4">No listings yet. </p>`;
+    }
+  } catch (error) {
+    listingsContainer.innerHTML = errorHtml(
+      'An error occured. Please wait a while and try again.'
+    );
   }
 };
 

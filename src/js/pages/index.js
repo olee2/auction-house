@@ -1,5 +1,6 @@
 import { getListings } from '../api/index.js';
-import { createCard, setLoader } from '../components/index.js';
+import { createCard, setLoader, errorHtml } from '../components/index.js';
+import { getError } from '../storage/index.js';
 
 const listingsContainer = document.querySelector('.listings-container');
 const searchField = document.querySelector('.search-field');
@@ -12,23 +13,29 @@ sort.onchange = (e) => {
 
 const main = async () => {
   listingsContainer.innerHTML = setLoader();
-  let listings = await getListings(sort.value);
-  if (searchField.value) {
-    listings = listings.filter((listing) => {
-      return (
-        listing.title.search(searchField.value) > -1 ||
-        listing.tags.includes(searchField.value)
-      );
-    });
-  }
+  try {
+    let listings = await getListings(sort.value);
+    if (searchField.value) {
+      listings = listings.filter((listing) => {
+        return (
+          listing.title.search(searchField.value) > -1 ||
+          listing.tags.includes(searchField.value)
+        );
+      });
+    }
 
-  if (!listings.length) {
-    listingsContainer.innerHTML =
-      '<p class="fw-bold ">No such listing found. Please try another search.</p>';
-  } else {
-    listingsContainer.innerHTML = listings
-      .map((listing) => createCard(listing))
-      .join('');
+    if (!listings.length) {
+      listingsContainer.innerHTML =
+        '<p class="fw-bold ">No such listing found. Please try another search.</p>';
+    } else {
+      listingsContainer.innerHTML = listings
+        .map((listing) => createCard(listing))
+        .join('');
+    }
+  } catch (error) {
+    listingsContainer.innerHTML = errorHtml(
+      'An error occured. Please wait a while and try again.'
+    );
   }
 };
 
